@@ -34,10 +34,10 @@ inputs:
     default: false
 runs:
   using: 'docker'
-  image: '../../../build_fuzzers.Dockerfile'
+  image: '../../../../projects/opensips/Dockerfile'
   env:
     OSS_FUZZ_PROJECT_NAME: ${{ inputs.oss-fuzz-project-name }}
-    LANGUAGE: ${{ inputs.language }}
+    FUZZING_LANGUAGE: ${{ inputs.language }}
     DRY_RUN: ${{ inputs.dry-run}}
     ALLOWED_BROKEN_TARGETS_PERCENTAGE: ${{ inputs.allowed-broken-targets-percentage}}
     SANITIZER: ${{ inputs.sanitizer }}
