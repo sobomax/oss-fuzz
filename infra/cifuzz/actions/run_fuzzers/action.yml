@@ -53,7 +53,7 @@ runs:
   image: '../../../run_fuzzers.Dockerfile'
   env:
     OSS_FUZZ_PROJECT_NAME: ${{ inputs.oss-fuzz-project-name }}
-    LANGUAGE: ${{ inputs.language }}
+    FUZZING_LANGUAGE: ${{ inputs.language }}
     FUZZ_SECONDS: ${{ inputs.fuzz-seconds }}
     DRY_RUN: ${{ inputs.dry-run}}
     SANITIZER: ${{ inputs.sanitizer }}
