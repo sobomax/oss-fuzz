@@ -15,7 +15,7 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder
-RUN git clone https://github.com/sippy/rtpproxy
+RUN git clone -b ${OSS_FUZZ_PROJECT_BRANCH} https://github.com/sippy/rtpproxy
 RUN git -C rtpproxy submodule update --init --recursive
 
 COPY build.sh $SRC/
