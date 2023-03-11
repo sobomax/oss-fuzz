@@ -5,6 +5,10 @@ inputs:
   oss-fuzz-project-name:
     description: 'Name of the corresponding OSS-Fuzz project.'
     required: true
+  oss-fuzz-project-branch:
+    description: 'Name of the project`s branch.'
+    required: false
+    default: 'master'
   language:
     description: 'Programming language project is written in.'
     required: false
@@ -38,10 +42,10 @@ inputs:
     default: false
 runs:
   using: 'docker'
-  image: '../../../../${{ inputs.oss-fuzz-project-name }}/Dockerfile'
+  image: '../../../build_project.Dockerfile'
   env:
     OSS_FUZZ_PROJECT_NAME: ${{ inputs.oss-fuzz-project-name }}
-    OSS_FUZZ_PROJECT_BRANCH: ${{ github.ref }}
+    OSS_FUZZ_PROJECT_BRANCH: ${{ inputs.oss-fuzz-project-branch }}
     FUZZING_LANGUAGE: ${{ inputs.language }}
     DRY_RUN: ${{ inputs.dry-run}}
     ALLOWED_BROKEN_TARGETS_PERCENTAGE: ${{ inputs.allowed-broken-targets-percentage}}
